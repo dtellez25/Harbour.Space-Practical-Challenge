@@ -55,6 +55,11 @@ Employers that hired graduates of Harbour.Space in the past include Google, IBM,
         Filter by:{" "}
         <select className="ml-2 border border-gray-300 rounded-md px-3 py-1 text-gray-600 focus:outline-none focus:ring-1 focus:ring-[#6C5CE7]">
         <option>Program conditions</option>
+        <option>All</option>
+        <option>Admissions</option>
+        <option>Harbour.Space</option>
+        <option>SCG</option>
+        <option>Living in Bangkok</option>
         </select>
     </div>
     </div>

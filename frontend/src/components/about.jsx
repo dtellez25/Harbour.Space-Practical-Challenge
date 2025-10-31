@@ -1,4 +1,5 @@
 import React from "react";
+import aboutPhoto from "../assets/images/Harbour.SpaceStudentPhoto.jpg";
 
 export const About = () => {
   return (
@@ -6,8 +7,8 @@ export const About = () => {
       {/* Left Section - Image Placeholder */}
       <div className="flex justify-center items-center">
         {/* Placeholder circle, replace src later */}
-        <div className="w-[360px] h-[360px] rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden">
-          {/* <img src="/your-image.jpg" alt="Apprenticeship" className="w-full h-full object-cover rounded-full" /> */}
+        <div className="w-[360px] h-[360px] rounded-full bg-gray-100 border border-gray-200 flex items-center overflow-hidden">
+          <img src={aboutPhoto} alt="Apprenticeship" className="w-full h-full object-cover rounded-full" />
           <p className="text-gray-400 text-sm">Image goes here</p>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import companyLogo from "../assets/images/Harbour.SpaceCompanyLogo.png";
 
 export const Introduction = () => {
   return (
@@ -33,9 +34,9 @@ export const Introduction = () => {
         {/* Powered By */}
         <div className="flex items-center gap-3 mb-2">
           <img
-            src="/zeptolab-logo.png"
+            src={companyLogo}
             alt="Zeptolab Logo"
-            className="w-10 h-10"
+            className="w-25 h-10"
           />
           <div className="text-left">
             <p className="text-gray-500 text-sm">Powered by:</p>

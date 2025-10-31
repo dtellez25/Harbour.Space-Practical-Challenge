@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { FaLinkedinIn, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import testimonialPhoto from "../assets/images/professionalHeadshot.jpg";
 
 const testimonials = [
   {
@@ -7,21 +8,21 @@ const testimonials = [
     title: "Interaction Design Fellow ’19",
     text: "This Fellowship was a turning point in my career. I wouldn’t be where I am today without the financial support and experience offered through the program.",
     education: "B.A. Visual Design",
-    img: "/irene.jpg",
+    img: testimonialPhoto,
   },
   {
     name: "Irene Pereyra",
     title: "Interaction Design Fellow ’19",
     text: "This Fellowship was a turning point in my career. I wouldn’t be where I am today without the financial support and experience offered through the program.",
     education: "B.A. Visual Design",
-    img: "/irene.jpg",
+    img: testimonialPhoto,
   },
   {
     name: "Irene Pereyra",
     title: "Interaction Design Fellow ’19",
     text: "This Fellowship was a turning point in my career. I wouldn’t be where I am today without the financial support and experience offered through the program.",
     education: "B.A. Visual Design",
-    img: "/irene.jpg",
+    img: testimonialPhoto,
   },
 ];
 
