@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { motion } from "framer-motion";
 import { FaLinkedinIn, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import testimonialPhoto from "../assets/images/professionalHeadshot.jpg";
 
@@ -31,13 +32,13 @@ export const TestimonialCarousel = () => {
 
   const scrollLeft = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -500, behavior: "smooth" });
+      carouselRef.current.scrollBy({ left: -650, behavior: "smooth" });
     }
   };
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 500, behavior: "smooth" });
+      carouselRef.current.scrollBy({ left: 650, behavior: "smooth" });
     }
   };
 
@@ -46,14 +47,14 @@ export const TestimonialCarousel = () => {
       {/* Arrows */}
       <button
         onClick={scrollLeft}
-        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white border border-gray-200 shadow-md w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-50 z-10"
+        className="absolute left-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-50 z-10"
       >
         <FaChevronLeft className="text-gray-500" />
       </button>
 
       <button
         onClick={scrollRight}
-        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white border border-gray-200 shadow-md w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-50 z-10"
+        className="absolute right-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-50 z-10"
       >
         <FaChevronRight className="text-gray-500" />
       </button>
@@ -61,7 +62,7 @@ export const TestimonialCarousel = () => {
       {/* Carousel */}
       <div
         ref={carouselRef}
-        className="flex overflow-x-scroll scrollbar-hide snap-x snap-mandatory gap-6 scroll-smooth justify-center"
+        className="flex overflow-x-auto snap-x snap-mandatory gap-6 scroll-smooth justify-start hide-scrollbar"
       >
         {testimonials.map((item, index) => (
           <div
@@ -71,11 +72,48 @@ export const TestimonialCarousel = () => {
             {/* Header */}
             <div className="flex justify-between items-center p-6 border-b border-gray-100">
               <div className="flex items-center gap-3">
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  className="w-12 h-12 rounded-full object-cover"
-                />
+                {/* Donut-style circular reveal */}
+                <div className="relative w-16 h-16 rounded-full overflow-hidden bg-white flex items-center justify-center shadow-md">
+                  {/* White donut ring that fades away */}
+                  <motion.div
+                    className="absolute inset-0 z-10 bg-white"
+                    initial={{
+                      WebkitMaskImage:
+                        "radial-gradient(circle at center, transparent 35%, rgba(255,255,255,1) 36%)",
+                      maskImage:
+                        "radial-gradient(circle at center, transparent 35%, rgba(255,255,255,1) 36%)",
+                      opacity: 1,
+                    }}
+                    whileInView={{
+                      WebkitMaskImage:
+                        "radial-gradient(circle at center, transparent 100%, rgba(255,255,255,0) 101%)",
+                      maskImage:
+                        "radial-gradient(circle at center, transparent 100%, rgba(255,255,255,0) 101%)",
+                      opacity: 0,
+                    }}
+                    transition={{
+                      duration: 3,
+                      ease: "easeInOut",
+                    }}
+                    viewport={{ once: true, amount: 0.6 }}
+                  />
+
+                  {/* Image zoom-out */}
+                  <motion.img
+                    src={item.img}
+                    alt={item.name}
+                    className="w-full h-full object-cover"
+                    initial={{ scale: 1.25 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{
+                      duration: 3,
+                      ease: "easeOut",
+                    }}
+                    viewport={{ once: true, amount: 0.6 }}
+                  />
+                </div>
+
+                {/* Name and title */}
                 <div>
                   <p className="text-gray-800 font-medium text-[15px] leading-tight">
                     {item.name}
@@ -85,6 +123,7 @@ export const TestimonialCarousel = () => {
                   </p>
                 </div>
               </div>
+
               <FaLinkedinIn className="text-gray-400 text-xl" />
             </div>
 
